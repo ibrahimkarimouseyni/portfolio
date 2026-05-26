@@ -224,23 +224,7 @@ La vérification formelle est indispensable pour garantir le bon fonctionnement 
 
 ---
 
-## 📬 Me Contacter
 
-<div align="center">
-
-📧 [ibrahim.karimouseyni@yahoo.com](mailto:ibrahim.karimouseyni@yahoo.com)  
-📞 +227 90 50 23 84  
-📍 Niamey, Niger · Disponibilité immédiate
-
-</div>
-
----
-
-<div align="center">
-<sub>💡 Ouvert aux opportunités en gestion de systèmes d'information, plateformes digitales et suivi-évaluation</sub>
-</div>
-
----
 
 ## 🚀 Autres Expériences & Projets Personnels
 
@@ -329,3 +313,21 @@ Au-delà de mon parcours technologique, je m'investis activement dans le dévelo
 - 🤝 **Autonomisation économique** : Mise en œuvre d'activités entrepreneuriales contribuant à l'autonomisation des jeunes et des ménages ruraux
 
 > *Cette double expertise — technique numérique et terrain agropastoral — me permet de concevoir des solutions digitales véritablement adaptées aux réalités des producteurs ruraux nigériens.*
+
+## 📬 Me Contacter
+
+<div align="center">
+
+📧 [ibrahim.karimouseyni@yahoo.com](mailto:ibrahim.karimouseyni@yahoo.com)  
+📞 +227 90 50 23 84  
+📍 Niamey, Niger · Disponibilité immédiate
+
+</div>
+
+---
+
+<div align="center">
+<sub>💡 Ouvert aux opportunités en gestion de systèmes d'information, plateformes digitales et suivi-évaluation</sub>
+</div>
+
+---
