@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KARIMOU SEYNI Ibrahim — Ingénieur Informatique</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --sand: #f5f0e8;
+    --terra: #c8622a;
+    --amber: #e8a030;
+    --moss: #2d5a3d;
+    --sky: #1a3a5c;
+    --light: #faf8f4;
+    --muted: #7a7268;
+    --border: #e0d8cc;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.05rem;
+    letter-spacing: -0.02em; color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--terra); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 30%, rgba(200,98,42,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(45,90,61,0.06) 0%, transparent 60%);
+  }
+  .hero-pattern {
+    position: absolute; top: 0; right: 0;
+    width: 45%; height: 100%;
+    background:
+      repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(200,98,42,0.04) 30px, rgba(200,98,42,0.04) 31px);
+  }
+  .hero-left {
+    padding: 6rem 3rem 4rem 4rem;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; z-index: 2;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--terra);
+    padding: 0.4rem 0.9rem;
+    border: 1.5px solid var(--terra);
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    width: fit-content;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-tag::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--terra); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  h1 span { color: var(--terra); }
+
+  .hero-sub {
+    font-size: 1.05rem; font-weight: 300; line-height: 1.7;
+    color: var(--muted); max-width: 480px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.9rem 2rem;
+    background: var(--ink); color: var(--light);
+    font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.85rem;
+    letter-spacing: 0.05em; text-decoration: none; border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--terra); transform: translateY(-2px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.9rem 2rem;
+    border: 1.5px solid var(--ink); color: var(--ink);
+    font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.85rem;
+    letter-spacing: 0.05em; text-decoration: none; border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: var(--ink); color: var(--light); transform: translateY(-2px); }
+
+  .hero-right {
+    display: flex; align-items: center; justify-content: center;
+    padding: 4rem 3rem;
+    position: relative; z-index: 2;
+    animation: fadeIn 0.8s 0.4s ease both;
+  }
+  .hero-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem;
+    max-width: 380px; width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.07);
+    position: relative;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute; top: -3px; left: 2rem; right: 2rem; height: 3px;
+    background: linear-gradient(90deg, var(--terra), var(--amber));
+  }
+  .card-avatar {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, var(--terra), var(--amber));
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800;
+    color: white; margin-bottom: 1.2rem;
+  }
+  .card-name {
+    font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.3rem;
+  }
+  .card-title { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.5rem; }
+  .card-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800;
+    color: var(--terra); line-height: 1;
+  }
+  .stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; letter-spacing: 0.04em; }
+  .card-badges {
+    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem;
+  }
+  .badge {
+    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.06em;
+    padding: 0.3rem 0.7rem;
+    background: var(--sand); color: var(--ink);
+    border-radius: 2px;
+  }
+  .badge.award {
+    background: rgba(200,98,42,0.1);
+    color: var(--terra);
+  }
+
+  /* SECTION BASE */
+  section { padding: 6rem 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+  .section-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--terra);
+    margin-bottom: 0.8rem;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800; line-height: 1.05; letter-spacing: -0.03em;
+    color: var(--ink); margin-bottom: 1rem;
+  }
+  h2 em { font-style: normal; color: var(--terra); }
+
+  /* STATS BAND */
+  #stats {
+    background: var(--ink); padding: 3.5rem 0;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; max-width: 1200px; margin: 0 auto; padding: 0 3rem;
+  }
+  .stat-item {
+    padding: 1.5rem 2rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-big {
+    font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800;
+    color: var(--amber); line-height: 1;
+  }
+  .stat-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 0.4rem; font-weight: 300; }
+
+  /* EXPERIENCE */
+  #experience { background: white; }
+  .exp-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5px; background: var(--border);
+    margin-top: 3rem;
+    border: 1.5px solid var(--border);
+  }
+  .exp-item {
+    background: white; padding: 2.5rem;
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .exp-item:hover { background: var(--sand); }
+  .exp-org {
+    font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--terra); margin-bottom: 0.4rem;
+  }
+  .exp-role {
+    font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.3rem; line-height: 1.2;
+  }
+  .exp-period {
+    font-size: 0.78rem; color: var(--muted); margin-bottom: 1rem;
+  }
+  .exp-desc { font-size: 0.88rem; color: #444; line-height: 1.65; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 1rem; }
+  .exp-tag {
+    font-size: 0.65rem; font-weight: 500; padding: 0.25rem 0.6rem;
+    background: var(--sand); color: var(--ink); border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+  .exp-award {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.72rem; font-weight: 600;
+    color: var(--terra); margin-top: 0.8rem;
+  }
+  .exp-award::before { content: '★'; }
+
+  /* SKILLS */
+  #skills { background: var(--sand); }
+  .skills-layout {
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 4rem; margin-top: 3rem; align-items: start;
+  }
+  .skills-intro {
+    position: sticky; top: 100px;
+  }
+  .skills-intro p {
+    font-size: 0.92rem; color: var(--muted); line-height: 1.75; margin-top: 1rem;
+  }
+  .skill-categories { display: flex; flex-direction: column; gap: 2rem; }
+  .skill-cat-title {
+    font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ink); padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--ink); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .skill-cat-title span {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px;
+    background: var(--terra); color: white;
+    font-size: 0.65rem; font-weight: 800; border-radius: 50%;
+  }
+  .skill-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .chip {
+    font-size: 0.78rem; font-weight: 400; padding: 0.45rem 0.9rem;
+    background: white; color: var(--ink);
+    border: 1px solid var(--border); border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .chip:hover { background: var(--ink); color: white; border-color: var(--ink); }
+  .chip.highlight {
+    background: var(--ink); color: white; border-color: var(--ink);
+  }
+
+  /* PROJETS */
+  #projets { background: white; }
+  .projets-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .projet-card {
+    border: 1.5px solid var(--border); border-radius: 3px;
+    overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
+    background: white;
+  }
+  .projet-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  }
+  .projet-thumb {
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem;
+    position: relative; overflow: hidden;
+  }
+  .projet-thumb::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.15));
+  }
+  .t1 { background: linear-gradient(135deg, #1a3a5c 0%, #2d5a3d 100%); }
+  .t2 { background: linear-gradient(135deg, #c8622a 0%, #e8a030 100%); }
+  .t3 { background: linear-gradient(135deg, #2d5a3d 0%, #1a6b4a 100%); }
+  .t4 { background: linear-gradient(135deg, #5c1a3a 0%, #8b2a5c 100%); }
+  .t5 { background: linear-gradient(135deg, #1a5c5c 0%, #2a8080 100%); }
+  .t6 { background: linear-gradient(135deg, #3a3a1a 0%, #6b6b2a 100%); }
+  .projet-body { padding: 1.5rem; }
+  .projet-client {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--terra); margin-bottom: 0.4rem;
+  }
+  .projet-title {
+    font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.5rem; line-height: 1.3;
+  }
+  .projet-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+  .projet-stack { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.8rem; }
+  .projet-stack span {
+    font-size: 0.62rem; padding: 0.2rem 0.5rem;
+    background: var(--sand); border-radius: 2px; color: #555;
+  }
+
+  /* FORMATION */
+  #formation { background: var(--ink); }
+  #formation h2 { color: white; }
+  #formation h2 em { color: var(--amber); }
+  #formation .section-label { color: var(--amber); }
+  .formation-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px; background: rgba(255,255,255,0.08);
+    margin-top: 3rem; border: 1.5px solid rgba(255,255,255,0.08);
+  }
+  .form-item {
+    background: var(--ink); padding: 2.5rem;
+    transition: background 0.2s;
+  }
+  .form-item:hover { background: #111; }
+  .form-year {
+    font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.15em; color: var(--amber); margin-bottom: 0.5rem;
+  }
+  .form-degree {
+    font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
+    color: white; margin-bottom: 0.3rem; line-height: 1.3;
+  }
+  .form-school { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 0.8rem; }
+  .form-note {
+    display: inline-block;
+    font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800;
+    color: var(--amber);
+  }
+  .form-note-label { font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-left: 0.3rem; }
+  .form-modules { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 0.8rem; line-height: 1.6; }
+
+  /* DISTINCTIONS */
+  #distinctions { background: var(--sand); }
+  .dist-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .dist-card {
+    background: white; padding: 2.5rem;
+    border: 1.5px solid var(--border); border-radius: 3px;
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    transition: transform 0.2s;
+  }
+  .dist-card:hover { transform: translateY(-3px); }
+  .dist-icon {
+    font-size: 2.5rem; min-width: 56px; height: 56px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--sand); border-radius: 3px;
+  }
+  .dist-year {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--terra); margin-bottom: 0.4rem;
+  }
+  .dist-title {
+    font-family: 'Syne', sans-serif; font-size: 0.98rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.3rem;
+  }
+  .dist-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+  /* LANGUES */
+  .lang-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; margin-top: 2rem;
+  }
+  .lang-card {
+    background: white; padding: 1.5rem;
+    border: 1.5px solid var(--border); border-radius: 3px; text-align: center;
+  }
+  .lang-name {
+    font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .lang-dots { display: flex; gap: 4px; justify-content: center; margin-bottom: 0.4rem; }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--border);
+  }
+  .dot.on { background: var(--terra); }
+  .lang-level { font-size: 0.72rem; color: var(--muted); }
+
+  /* CONTACT */
+  #contact {
+    background: var(--ink);
+    padding: 7rem 0;
+  }
+  .contact-inner {
+    max-width: 800px; margin: 0 auto; text-align: center; padding: 0 3rem;
+  }
+  #contact h2 { color: white; font-size: clamp(2.5rem,4vw,4rem); }
+  #contact h2 em { color: var(--amber); }
+  #contact .section-label { color: var(--amber); }
+  .contact-sub {
+    font-size: 1rem; color: rgba(255,255,255,0.5);
+    margin: 1.5rem 0 3rem; line-height: 1.7;
+  }
+  .contact-links {
+    display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+  }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 1rem 2rem;
+    border: 1.5px solid rgba(255,255,255,0.2); color: white;
+    font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 600;
+    text-decoration: none; border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { background: var(--terra); border-color: var(--terra); }
+  .contact-link.primary {
+    background: var(--amber); color: var(--ink); border-color: var(--amber);
+  }
+  .contact-link.primary:hover { background: var(--terra); border-color: var(--terra); color: white; }
+
+  /* FOOTER */
+  footer {
+    background: #000; padding: 2rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-name {
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-dispo {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.75rem; color: rgba(255,255,255,0.4);
+  }
+  .footer-dispo::before {
+    content: ''; width: 7px; height: 7px; border-radius: 50%;
+    background: #4ade80; box-shadow: 0 0 6px #4ade80;
+    animation: pulse 2s infinite;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 2rem 1.5rem; }
+    .hero-right { padding: 2rem 1.5rem; }
+    .hero-pattern { display: none; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .exp-grid { grid-template-columns: 1fr; }
+    .skills-layout { grid-template-columns: 1fr; }
+    .skills-intro { position: static; }
+    .projets-grid { grid-template-columns: 1fr 1fr; }
+    .formation-grid { grid-template-columns: 1fr; }
+    .dist-grid { grid-template-columns: 1fr; }
+    .lang-grid { grid-template-columns: 1fr 1fr; }
+    .container { padding: 0 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    .projets-grid { grid-template-columns: 1fr; }
+    .lang-grid { grid-template-columns: 1fr 1fr; }
+    nav { padding: 1rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">KSI</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Expérience</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#formation">Formation</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-left">
+    <div class="hero-tag">Disponible immédiatement · Niamey, Niger</div>
+    <h1>KARIMOU<br>SEYNI<br><span>Ibrahim</span></h1>
+    <p class="hero-sub">Ingénieur Informatique & Spécialiste Plateformes Digitales. 7+ ans d'expérience dans le déploiement d'applications web/mobile, l'administration de données et la digitalisation de projets à impact.</p>
+    <div class="hero-cta">
+      <a href="mailto:ibrahim.karimouseyni@yahoo.com" class="btn-primary">✉ Me contacter</a>
+      <a href="#projets" class="btn-secondary">Voir mes projets →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="card-avatar">KS</div>
+      <div class="card-name">KARIMOU SEYNI Ibrahim</div>
+      <div class="card-title">Ingénieur Informatique — Spécialiste Plateformes Digitales</div>
+      <div class="card-stats">
+        <div class="stat">
+          <div class="stat-num">7+</div>
+          <div class="stat-label">Années d'expérience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Projets déployés</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Pays couverts</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Distinctions</div>
+        </div>
+      </div>
+      <div class="card-badges">
+        <span class="badge">Banque Mondiale</span>
+        <span class="badge">ICRISAT</span>
+        <span class="badge">SNV</span>
+        <span class="badge award">★ Shine Award 2024</span>
+        <span class="badge award">★ Prix App Agricole 2022</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-big">145+</div>
+      <div class="stat-desc">Indicateurs de performance suivis (PASEC)</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-big">5</div>
+      <div class="stat-desc">Régions couvertes pour l'administration BDD</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-big">3</div>
+      <div class="stat-desc">Pays d'intervention (Niger, Mali, Burkina Faso)</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-big">16.8</div>
+      <div class="stat-desc">Moyenne Master – Université Constantine 2</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label reveal">Parcours professionnel</div>
+    <h2 class="reveal">7 ans d'<em>impact</em><br>terrain et digital</h2>
+    <div class="exp-grid">
+
+      <div class="exp-item reveal">
+        <div class="exp-org">ICRISAT</div>
+        <div class="exp-role">Senior Executive Computer Analyst</div>
+        <div class="exp-period">Janvier 2023 – Décembre 2025 · Niamey, Niger</div>
+        <div class="exp-desc">Gestion opérationnelle de plateformes web/mobile en production. Développement et déploiement d'applications métier : plateforme géospatiale RNA, application AgroBusiness (élevage), système de gestion de paie (RH/Finance). Administration BDD, sécurité avancée des serveurs et accompagnement d'utilisateurs non techniques.</div>
+        <div class="exp-award">Shine Award Support Champion 2024</div>
+        <div class="exp-tags">
+          <span class="exp-tag">Web/Mobile</span>
+          <span class="exp-tag">PostgreSQL</span>
+          <span class="exp-tag">DevOps</span>
+          <span class="exp-tag">Sécurité</span>
+          <span class="exp-tag">GIS</span>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-org">Banque Mondiale — PASEC</div>
+        <div class="exp-role">IT / Administrateur BDD Suivi-Évaluation</div>
+        <div class="exp-period">Mars 2020 – Septembre 2022 · Niamey, Niger</div>
+        <div class="exp-desc">Administration des bases de données S&E sur 5 régions (Dosso, Maradi, Tahoua, Tillabéri, Zinder). Conception d'une BDD web centralisée multi-niveaux, tableaux de bord dynamiques, intégration financière TOM2PRO, collecte mobile KoboToolbox/ODK.</div>
+        <div class="exp-tags">
+          <span class="exp-tag">KoboToolbox</span>
+          <span class="exp-tag">Power BI</span>
+          <span class="exp-tag">MySQL</span>
+          <span class="exp-tag">S&E</span>
+          <span class="exp-tag">Reporting</span>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-org">SNV — Pro-ARIDES</div>
+        <div class="exp-role">Consultant S&E Digital, Web & Communication</div>
+        <div class="exp-period">Février 2022 – Décembre 2025 · Niger / Mali / Burkina Faso</div>
+        <div class="exp-desc">Conception, développement et administration du site web et de l'intranet. Intégration API multi-pays, stratégies de sauvegarde et PRA, tableaux de bord bailleur, formation des équipes nationales et cartographie des zones d'intervention.</div>
+        <div class="exp-tags">
+          <span class="exp-tag">PHP/JS</span>
+          <span class="exp-tag">WordPress</span>
+          <span class="exp-tag">API REST</span>
+          <span class="exp-tag">QGIS</span>
+          <span class="exp-tag">Formation</span>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-org">Cowater Sogema/CECI — MCA-Niger</div>
+        <div class="exp-role">Consultant Suivi-Évaluation & Web</div>
+        <div class="exp-period">Février 2021 – Novembre 2023 · Niamey, Niger</div>
+        <div class="exp-desc">Conception d'un système de gestion des données de performances (offline & online) avec tableau de bord. Développement et déploiement d'un site web institutionnel adapté web et mobile, hébergé et sécurisé. Production de rapports techniques.</div>
+        <div class="exp-tags">
+          <span class="exp-tag">Offline/Online</span>
+          <span class="exp-tag">Dashboard</span>
+          <span class="exp-tag">CI/CD</span>
+          <span class="exp-tag">Mobile-first</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="skills-layout">
+      <div class="skills-intro reveal">
+        <div class="section-label">Stack technique</div>
+        <h2>Des outils<br><em>maîtrisés</em><br>au service du terrain</h2>
+        <p>Stack full-stack, DevOps, Data Science, sécurité applicative et collecte mobile. Chaque outil a été utilisé en production réelle dans des contextes à fort enjeu.</p>
+      </div>
+      <div class="skill-categories">
+
+        <div class="reveal">
+          <div class="skill-cat-title"><span>①</span> Développement Web & Mobile</div>
+          <div class="skill-chips">
+            <span class="chip highlight">React.js</span>
+            <span class="chip highlight">Flutter</span>
+            <span class="chip highlight">React Native</span>
+            <span class="chip">Angular</span>
+            <span class="chip">PHP / Laravel</span>
+            <span class="chip">Python / Flask</span>
+            <span class="chip">Java / Spring</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">HTML5 / CSS3 / JS</span>
+            <span class="chip">WordPress</span>
+            <span class="chip">Symfony</span>
+            <span class="chip">Android</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="skill-cat-title"><span>②</span> Bases de données & Sécurité</div>
+          <div class="skill-chips">
+            <span class="chip highlight">PostgreSQL</span>
+            <span class="chip highlight">MySQL</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">Oracle 11g</span>
+            <span class="chip">Neo4J</span>
+            <span class="chip">SQL avancé</span>
+            <span class="chip">SSL/TLS</span>
+            <span class="chip">Active Directory</span>
+            <span class="chip">Pen Testing</span>
+            <span class="chip">RGPD</span>
+            <span class="chip">JWT / Auth</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="skill-cat-title"><span>③</span> DevOps & Cloud</div>
+          <div class="skill-chips">
+            <span class="chip highlight">Docker</span>
+            <span class="chip highlight">Git / GitHub</span>
+            <span class="chip">CI/CD (GitHub Actions)</span>
+            <span class="chip">AWS</span>
+            <span class="chip">Google App Engine</span>
+            <span class="chip">Linux Server</span>
+            <span class="chip">Microservices</span>
+            <span class="chip">VPN / Firewall</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="skill-cat-title"><span>④</span> Data, Reporting & S&E</div>
+          <div class="skill-chips">
+            <span class="chip highlight">Power BI</span>
+            <span class="chip highlight">KoboToolbox / ODK</span>
+            <span class="chip">Metabase</span>
+            <span class="chip">Tableau</span>
+            <span class="chip">R / SPSS / Stata</span>
+            <span class="chip">Machine Learning</span>
+            <span class="chip">QGIS</span>
+            <span class="chip">Big Data / Spark</span>
+            <span class="chip">Hadoop</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets">
+  <div class="container">
+    <div class="section-label reveal">Réalisations clés</div>
+    <h2 class="reveal">Projets déployés<br>en <em>production réelle</em></h2>
+    <div class="projets-grid">
+
+      <div class="projet-card reveal">
+        <div class="projet-thumb t1">🌍</div>
+        <div class="projet-body">
+          <div class="projet-client">ICRISAT</div>
+          <div class="projet-title">Plateforme Géospatiale RNA</div>
+          <div class="projet-desc">Système de gestion et visualisation des données RNA sur le territoire nigérien. Intégration cartographique, tableaux de bord, gestion des accès.</div>
+          <div class="projet-stack">
+            <span>GIS</span><span>PostgreSQL</span><span>Leaflet</span><span>Python</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="projet-card reveal">
+        <div class="projet-thumb t2">🐄</div>
+        <div class="projet-body">
+          <div class="projet-client">ICRISAT</div>
+          <div class="projet-title">Application AgroBusiness</div>
+          <div class="projet-desc">Gestion de la chaîne de valeur élevage. Prix de la meilleure application numérique agricole au Salon de l'Agriculture du Niger 2022.</div>
+          <div class="projet-stack">
+            <span>Mobile</span><span>Flutter</span><span>API REST</span><span>MySQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="projet-card reveal">
+        <div class="projet-thumb t3">💰</div>
+        <div class="projet-body">
+          <div class="projet-client">ICRISAT</div>
+          <div class="projet-title">Système de Gestion de Paie</div>
+          <div class="projet-desc">Plateforme intégrée RH & Finance. Shine Award 2024 pour contribution exceptionnelle à la digitalisation des services internes.</div>
+          <div class="projet-stack">
+            <span>Java</span><span>Spring</span><span>PostgreSQL</span><span>Docker</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="projet-card reveal">
+        <div class="projet-thumb t4">📊</div>
+        <div class="projet-body">
+          <div class="projet-client">PASEC / Banque Mondiale</div>
+          <div class="projet-title">BDD Centralisée S&E Multi-Régions</div>
+          <div class="projet-desc">Système centralisé de suivi de 145+ indicateurs sur 5 régions. Droits d'accès différenciés, tableaux de bord dynamiques, rapports exportables.</div>
+          <div class="projet-stack">
+            <span>PHP</span><span>MySQL</span><span>Power BI</span><span>TOM2PRO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="projet-card reveal">
+        <div class="projet-thumb t5">🌐</div>
+        <div class="projet-body">
+          <div class="projet-client">SNV — Pro-ARIDES</div>
+          <div class="projet-title">Site Web & Intranet Multi-Pays</div>
+          <div class="projet-desc">Conception et administration d'une plateforme web/intranet couvrant Niger, Mali et Burkina Faso. Intégration API multi-bases, PRA, cartographie QGIS.</div>
+          <div class="projet-stack">
+            <span>WordPress</span><span>PHP/JS</span><span>API</span><span>QGIS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="projet-card reveal">
+        <div class="projet-thumb t6">📱</div>
+        <div class="projet-body">
+          <div class="projet-client">MCA-Niger / Cowater Sogema</div>
+          <div class="projet-title">Système de Collecte Mobile Offline/Online</div>
+          <div class="projet-desc">Plateforme de gestion des données de performances accessible en mode offline et online. Site institutionnel responsive déployé et sécurisé.</div>
+          <div class="projet-stack">
+            <span>KoboToolbox</span><span>ODK</span><span>PWA</span><span>CI/CD</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION -->
+<section id="formation">
+  <div class="container">
+    <div class="section-label reveal">Parcours académique</div>
+    <h2 class="reveal">Formation<br><em>d'excellence</em></h2>
+    <div class="formation-grid">
+
+      <div class="form-item reveal">
+        <div class="form-year">2017 – 2019</div>
+        <div class="form-degree">Master Mathématiques & Informatique</div>
+        <div class="form-school">Université Constantine 2 — Algérie</div>
+        <div>
+          <span class="form-note">16.83</span>
+          <span class="form-note-label">/20</span>
+        </div>
+        <div class="form-modules">Réseaux & Systèmes Distribués · Big Data · Data Mining · Sécurité informatique · Génie logiciel · Dev. applications réparties</div>
+      </div>
+
+      <div class="form-item reveal">
+        <div class="form-year">2014 – 2017</div>
+        <div class="form-degree">Licence Mathématiques & Informatique</div>
+        <div class="form-school">Université Chadli Bendjedid El Tarf — Algérie</div>
+        <div>
+          <span class="form-note">15.69</span>
+          <span class="form-note-label">/20</span>
+        </div>
+        <div class="form-modules">Systèmes Informatiques · Génie logiciel · BDD · Développement web & mobile · Algèbre · Statistique</div>
+      </div>
+
+      <div class="form-item reveal">
+        <div class="form-year">2011 – 2014</div>
+        <div class="form-degree">Baccalauréat Scientifique (BAC C)</div>
+        <div class="form-school">Lycée Issa Korombé — Niamey, Niger</div>
+        <div>
+          <span class="form-note">12.52</span>
+          <span class="form-note-label">/20</span>
+        </div>
+        <div class="form-modules">Filière scientifique · Mathématiques · Physique · Chimie</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DISTINCTIONS -->
+<section id="distinctions">
+  <div class="container">
+    <div class="section-label reveal">Reconnaissance</div>
+    <h2 class="reveal">Prix &<br><em>Distinctions</em></h2>
+    <div class="dist-grid">
+
+      <div class="dist-card reveal">
+        <div class="dist-icon">🏆</div>
+        <div>
+          <div class="dist-year">2024 · ICRISAT</div>
+          <div class="dist-title">Shine Award – Support Champion</div>
+          <div class="dist-desc">Récompense pour contribution exceptionnelle à la digitalisation des services RH et Finance, optimisant l'efficacité des processus et améliorant le traitement des opérations de paie.</div>
+        </div>
+      </div>
+
+      <div class="dist-card reveal">
+        <div class="dist-icon">🥇</div>
+        <div>
+          <div class="dist-year">2022 · SALON DE L'AGRICULTURE DU NIGER</div>
+          <div class="dist-title">Prix Meilleure Application Numérique Agricole</div>
+          <div class="dist-desc">7ème édition du Salon de l'Agriculture, de l'Hydraulique, de l'Environnement et de l'Élevage du Niger (SAHEL). Application AgroBusiness ICRISAT.</div>
+        </div>
+      </div>
+
+      <div class="dist-card reveal">
+        <div class="dist-icon">📜</div>
+        <div>
+          <div class="dist-year">2018</div>
+          <div class="dist-title">Certificat – Développement Applications Réparties Java</div>
+          <div class="dist-desc">Maîtrise du développement d'applications distribuées en Java, couvrant architecture, communication inter-services et déploiement.</div>
+        </div>
+      </div>
+
+      <div class="dist-card reveal">
+        <div class="dist-icon">🤖</div>
+        <div>
+          <div class="dist-year">2018</div>
+          <div class="dist-title">Attestation Stage – Robot Operating System (ROS)</div>
+          <div class="dist-desc">Formation spécialisée en robotique et systèmes embarqués avec le framework ROS, intégrant programmation d'agents autonomes et systèmes temps réel.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Langues -->
+    <div style="margin-top: 4rem;">
+      <div class="section-label reveal">Langues</div>
+      <div class="lang-grid">
+        <div class="lang-card reveal">
+          <div class="lang-name">Français</div>
+          <div class="lang-dots">
+            <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+          </div>
+          <div class="lang-level">Excellent (Lu · Parlé · Écrit)</div>
+        </div>
+        <div class="lang-card reveal">
+          <div class="lang-name">Haoussa</div>
+          <div class="lang-dots">
+            <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+          </div>
+          <div class="lang-level">Excellent (Lu · Parlé · Écrit)</div>
+        </div>
+        <div class="lang-card reveal">
+          <div class="lang-name">Anglais</div>
+          <div class="lang-dots">
+            <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div>
+          </div>
+          <div class="lang-level">Technique (Lu · Écrit)</div>
+        </div>
+        <div class="lang-card reveal">
+          <div class="lang-name">Zarma</div>
+          <div class="lang-dots">
+            <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div>
+          </div>
+          <div class="lang-level">Excellent (Parlé)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label reveal">Travaillons ensemble</div>
+    <h2 class="reveal">Prêt pour votre<br><em>prochain projet</em></h2>
+    <p class="contact-sub reveal">Disponible immédiatement à Niamey. Ouvert aux opportunités en développement web/mobile, gestion de plateformes numériques et projets de digitalisation.</p>
+    <div class="contact-links reveal">
+      <a href="mailto:ibrahim.karimouseyni@yahoo.com" class="contact-link primary">✉ ibrahim.karimouseyni@yahoo.com</a>
+      <a href="tel:+22790502384" class="contact-link">📱 +227 90 50 23 84</a>
+      <a href="#" class="contact-link">📍 Niamey, Niger</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">KARIMOU SEYNI Ibrahim · Ingénieur Informatique</span>
+  <span class="footer-dispo">Disponible immédiatement</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth active nav
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--terra)' : '';
+    });
+  });
+</script>
+</body>
+</html>
